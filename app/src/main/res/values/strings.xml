@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Helsinki Outdoor Activities</string>
+    <string name="txt_sign_up">SIGN UP</string>
+    <string name="txt_log_in">LOGIN</string>
+    <string name="txt_user_name">Username</string>
+    <string name="txt_password">Password</string>
+    <string name="txt_confirm_password">Confirm password</string>
 </resources>
