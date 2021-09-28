@@ -5,4 +5,13 @@
     <string name="txt_user_name">Username</string>
     <string name="txt_password">Password</string>
     <string name="txt_confirm_password">Confirm password</string>
+    <string name="txt_email">Email</string>
+    <string name="txt_login_fail">Login fail</string>
+    <string name="invalid_name">User name must not be empty</string>
+    <string name="duplicate_name">User with this name already exists</string>
+    <string name="invalid_email">Please enter a valid email</string>
+    <string name="invalid_password">Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</string>
+    <string name="invalid_confirm_password">Password does not match</string>
+    <string name="empty_string" />
+    <string name="txt_empty" />
 </resources>
