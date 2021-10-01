@@ -1,6 +1,8 @@
 package com.example.helsinkioutdooractivities.ui.auth
 
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.helsinkioutdooractivities.R
@@ -16,17 +18,18 @@ class AuthActivity:  AppCompatActivity(), FirstFragment.FirstFragmentListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
-
+        replaceFragment(firstFragment)
+        hideSystemUI()
     }
 
     //FirstFragment listeners:
     //when button "sign up" clicked from FirstFragment
     override fun onButtonSignUpClick() {
-        //replaceFragment(registrationFragment)
+        replaceFragment(registrationFragment)
     }
     //when button "sign in" clicked from FirstFragment
     override fun onButtonSignInClick() {
-        //replaceFragment(loginFragment)
+        replaceFragment(loginFragment)
     }
 
     //function used for fragment replacement
@@ -36,5 +39,15 @@ class AuthActivity:  AppCompatActivity(), FirstFragment.FirstFragmentListener {
             .replace(R.id.fragment_container, fragment)
             .addToBackStack(null)
             .commit()
+    }
+
+    private fun hideSystemUI() {
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 }
