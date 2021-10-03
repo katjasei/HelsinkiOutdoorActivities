@@ -15,4 +15,8 @@
     <string name="empty_string" />
     <string name="txt_empty" />
     <string name="todo">TODO</string>
+
+    <!--Home-->
+    <string name="desc_map">Map of your current location</string>
+    <string name="desc_map_center">Center your map</string>
 </resources>

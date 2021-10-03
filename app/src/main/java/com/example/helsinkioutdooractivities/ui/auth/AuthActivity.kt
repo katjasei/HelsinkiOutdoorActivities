@@ -34,7 +34,7 @@ class AuthActivity:  AppCompatActivity(), FirstFragment.FirstFragmentListener {
 
     //function used for fragment replacement
     private fun replaceFragment(fragment: Fragment){
-        // fragment manager can help when switching to the other fragment is needed
+        //fragment manager can help when switching to the other fragment is needed
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .addToBackStack(null)
