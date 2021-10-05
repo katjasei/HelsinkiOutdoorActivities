@@ -14,4 +14,14 @@
     <string name="invalid_confirm_password">Password does not match</string>
     <string name="empty_string" />
     <string name="txt_empty" />
+    <string name="todo">TODO</string>
+
+    <!--Home-->
+    <string name="desc_map">Map of your current location</string>
+    <string name="desc_map_center">Center your map</string>
+
+    <!--Tabs-->
+    <string name="tab_map">Map</string>
+    <string name="tab_places">Places</string>
+    <string name="tab_profile">Profile</string>
 </resources>
