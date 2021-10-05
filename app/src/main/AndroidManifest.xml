@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelsinkiOutdoorActivities">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBWg5O7EYkUKecixWQ1s_leqiVTnu838XE"/>
+
         <activity android:name=".ui.auth.AuthActivity"
-            android:theme="@style/AppTheme"
-           >
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

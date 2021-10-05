@@ -1,5 +1,6 @@
 package com.example.helsinkioutdooractivities.ui.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.helsinkioutdooractivities.R
+import com.example.helsinkioutdooractivities.ui.home.MainActivity
 
 class LoginFragment: Fragment() {
 
@@ -25,6 +27,10 @@ class LoginFragment: Fragment() {
         buttonLogin.setOnClickListener {
             //function login
            // userLogin(valueEmail.text.toString(), valuePassword.text.toString())
+            activity!!.finish()
+            //move to MainActivity (HomeActivity)
+            val intent = Intent(this.context, MainActivity::class.java)
+            startActivity(intent)
         }
         return view
     }
