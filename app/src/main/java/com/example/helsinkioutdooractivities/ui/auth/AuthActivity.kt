@@ -1,6 +1,7 @@
 package com.example.helsinkioutdooractivities.ui.auth
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -13,12 +14,21 @@ class AuthActivity:  AppCompatActivity(), FirstFragment.FirstFragmentListener {
     private val firstFragment = FirstFragment()
     private val loginFragment = LoginFragment()
     private val registrationFragment = RegistrationFragment()
+    private val splashScreenFragment = SplashScreenFragment()
 
     //FUNCTIONS:
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
-        replaceFragment(firstFragment)
+        replaceFragment(splashScreenFragment)
+        val handler = Handler()
+        handler.postDelayed({
+            run {
+                //go to FirstFragment, if user not logged in
+                replaceFragment(firstFragment)
+            }
+        },3000)
+
         hideSystemUI()
     }
 

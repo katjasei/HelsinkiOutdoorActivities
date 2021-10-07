@@ -24,4 +24,7 @@
     <string name="tab_map">Map</string>
     <string name="tab_places">Places</string>
     <string name="tab_profile">Profile</string>
+    <string name="textview">TextView</string>
+
+
 </resources>
