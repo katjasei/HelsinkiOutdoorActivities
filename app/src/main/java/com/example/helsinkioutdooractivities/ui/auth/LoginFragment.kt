@@ -14,7 +14,6 @@ import com.example.helsinkioutdooractivities.ui.home.MainActivity
 class LoginFragment: Fragment() {
 
 
-
     //FUNCTIONS:
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -27,6 +26,7 @@ class LoginFragment: Fragment() {
         buttonLogin.setOnClickListener {
             //function login
            // userLogin(valueEmail.text.toString(), valuePassword.text.toString())
+
             activity!!.finish()
             //move to MainActivity (HomeActivity)
             val intent = Intent(this.context, MainActivity::class.java)
