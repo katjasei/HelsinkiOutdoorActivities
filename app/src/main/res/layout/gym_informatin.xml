@@ -8,15 +8,18 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="275dp"
         android:background="transparent"
         android:contentDescription="ghg"
-        android:scaleType="fitStart"
+        android:foreground="@drawable/gradient"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/main_theme" />
 
     <TextView
@@ -24,13 +27,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shadowColor="#0B0808"
-        android:shadowDx="7"
-        android:shadowDy="7"
-        android:shadowRadius="9"
-        android:text="Ulappansaarentie 3"
+        android:shadowDx="10"
+        android:shadowDy="4"
+        android:shadowRadius="10"
+        android:text="@string/address1"
         android:textColor="#FDF9F9"
         android:textColorHighlight="#0B0A0A"
         android:textSize="20sp"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="227dp" />
 
@@ -39,12 +43,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shadowColor="#050505"
-        android:shadowDx="8"
-        android:shadowDy="12"
-        android:shadowRadius="12"
-        android:text="2,3 km"
+        android:shadowDx="10"
+        android:shadowDy="4"
+        android:shadowRadius="10"
+        android:text="@string/distance"
         android:textColor="#FDFCFC"
         android:textSize="20sp"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="336dp"
         tools:layout_editor_absoluteY="227dp" />
 
@@ -52,9 +57,12 @@
         android:id="@+id/imageView"
         android:layout_width="46dp"
         android:layout_height="39dp"
-        app:srcCompat="@drawable/abc_vector_test"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:srcCompat="@drawable/abc_vector_test" />
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
@@ -63,6 +71,16 @@
         android:background="#1db995"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></com.google.android.material.tabs.TabLayout>
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:srcCompat="@drawable/favorite" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

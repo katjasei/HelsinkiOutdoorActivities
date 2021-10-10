@@ -27,9 +27,16 @@
     <string name="textview">TextView</string>
 
     <!--Address-->
-    <string name="address1">Ulappansaarentie 3, Helsinki</string>
+    <string name="address1">Ulappansaarentie 3</string>
 
     <!--Names of places-->
     <string name="place1">Ulappansaarentien ulkopaikka</string>
 
+    <string name="distance">2,3 km</string>
+
+    <string name="like_amount">2</string>
+
+    <string name="comment_amount">2</string>
+    <string name="comments">Comments 3</string>
+    <string name="no_comment">No comments</string>
 </resources>
