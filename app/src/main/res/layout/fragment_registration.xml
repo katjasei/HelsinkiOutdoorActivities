@@ -10,7 +10,7 @@
 
     <ImageView
         android:id="@+id/background_picture"
-        android:layout_width="0dp"
+        android:layout_width="750dp"
         android:layout_height="0dp"
         android:alpha="0.61"
         android:contentDescription="@null"
@@ -18,8 +18,6 @@
         android:src="@drawable/main_theme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="ImageContrastCheck" />

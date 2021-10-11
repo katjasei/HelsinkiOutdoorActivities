@@ -1,7 +1,10 @@
 package com.example.helsinkioutdooractivities.ui.home
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.location.Location
@@ -9,9 +12,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.helsinkioutdooractivities.R
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -20,11 +23,12 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.util.jar.Manifest
+
 
 class TabMapFragment: Fragment(), OnMapReadyCallback {
 
@@ -70,6 +74,7 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
             return
         }
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context!!.applicationContext)
+
         val task = fusedLocationProviderClient.lastLocation
         task.addOnSuccessListener { location ->
             if (location != null) {
@@ -86,10 +91,33 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap?) {
         val latLng = LatLng(currentLocation.latitude, currentLocation.longitude)
         val markerOptions = MarkerOptions().position(latLng).title("Your current location").icon(
-            BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+            BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
         googleMap?.animateCamera(CameraUpdateFactory.newLatLng(latLng))
-        googleMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17f))
+        googleMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
         googleMap?.addMarker(markerOptions)
+
+        val latLngPlace = LatLng(60.4372, 25.1420)
+        val markerOptionsPlace = MarkerOptions().position(latLngPlace).title("Ulappasaarentie 3").icon(
+            bitmapDescriptorFromVector(activity!!, R.drawable.ic_heart_svgrepo_com))
+        googleMap?.addMarker(markerOptionsPlace)
+    }
+
+    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+        val vectorDrawable = ContextCompat.getDrawable(context, vectorResId)
+        vectorDrawable!!.setBounds(
+            0,
+            0,
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight
+        )
+        val bitmap = Bitmap.createBitmap(
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        vectorDrawable.draw(canvas)
+        return BitmapDescriptorFactory.fromBitmap(bitmap)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String?>,

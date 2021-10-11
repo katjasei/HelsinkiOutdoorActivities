@@ -1,4 +1,4 @@
-package com.example.helsinkioutdooractivities
+package com.example.helsinkioutdooractivities.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -8,7 +8,7 @@ import com.example.helsinkioutdooractivities.ui.home.TabMapFragment
 import com.example.helsinkioutdooractivities.ui.home.TabPlacesFragment
 import com.example.helsinkioutdooractivities.ui.home.TabProfileFragment
 
-private const val NUM_TABS = 3
+private const val NUM_TABS = 2
 
 class ViewPagerAdapter (fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle)  {
@@ -19,8 +19,7 @@ class ViewPagerAdapter (fragmentManager: FragmentManager, lifecycle: Lifecycle) 
     override fun createFragment(position: Int): Fragment {
         when (position) {
             0 -> return TabMapFragment()
-            1 -> return TabPlacesFragment()
         }
-        return TabProfileFragment()
+        return TabPlacesFragment()
     }
 }

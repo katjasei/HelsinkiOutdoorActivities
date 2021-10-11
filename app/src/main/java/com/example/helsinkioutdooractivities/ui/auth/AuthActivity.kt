@@ -8,13 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.helsinkioutdooractivities.R
 
-class AuthActivity:  AppCompatActivity(), FirstFragment.FirstFragmentListener {
+class AuthActivity:  AppCompatActivity(), FirstFragment.FirstFragmentListener, LoginFragment.LoginFragmentListener {
 
     //Create a new Fragment to be placed in the activity layout
     private val firstFragment = FirstFragment()
     private val loginFragment = LoginFragment()
     private val registrationFragment = RegistrationFragment()
     private val splashScreenFragment = SplashScreenFragment()
+    private val permissionFragment = PermissionFragment()
 
     //FUNCTIONS:
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,11 @@ class AuthActivity:  AppCompatActivity(), FirstFragment.FirstFragmentListener {
     //when button "sign in" clicked from FirstFragment
     override fun onButtonSignInClick() {
         replaceFragment(loginFragment)
+    }
+
+    //when button "log in" clicked from FirstFragment
+    override fun onButtonLogInClick() {
+        replaceFragment(permissionFragment)
     }
 
     //function used for fragment replacement

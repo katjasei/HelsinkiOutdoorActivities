@@ -10,15 +10,13 @@
 
     <ImageView
         android:id="@+id/background_picture"
-        android:layout_width="0dp"
+        android:layout_width="750dp"
         android:layout_height="0dp"
         android:contentDescription="@null"
         android:scaleType="centerCrop"
         android:src="@drawable/main_theme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -42,7 +40,7 @@
         tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_sign_in"
+        android:id="@+id/btn_login"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="340dp"
         android:layout_height="60dp"

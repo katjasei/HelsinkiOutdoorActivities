@@ -49,9 +49,11 @@
         android:id="@+id/imageView4"
         android:layout_width="30dp"
         android:layout_height="29dp"
-        app:srcCompat="@drawable/pin_3"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="379dp" />
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="31dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map"
+        app:srcCompat="@drawable/pin_3" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -67,9 +69,11 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="38dp"
         android:text="Ulappansaarentie 3, Helsinki"
-        android:textSize="16"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="386dp" />
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/map" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
