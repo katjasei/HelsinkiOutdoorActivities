@@ -53,4 +53,10 @@
     <string name="comments">Comments 3</string>
     <string name="no_comment">No comments</string>
 
+    <string name="search">Search</string>
+
+    <!--Profile-->
+    <string name="desc_profile_image">Your profile image</string>
+    <string name="txt_current_user">Current user</string>
+    <string name="txt_con_desc_blue_pic">blue background picture</string>
 </resources>

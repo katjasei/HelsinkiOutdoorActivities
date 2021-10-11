@@ -1,16 +1,21 @@
 package com.example.helsinkioutdooractivities.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.helsinkioutdooractivities.R
 import com.example.helsinkioutdooractivities.ui.place.GymInformationFragment
 import com.example.helsinkioutdooractivities.ui.place.PlaceActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentListener {
@@ -19,10 +24,10 @@ class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentLis
     private val homeFragment = HomeFragment()
 
     //FUNCTIONS:
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val intentFragment = intent.extras!!.getInt("frgToLoad")
 
         when (intentFragment) {
@@ -39,6 +44,18 @@ class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentLis
 
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNavigation.setOnNavigationItemSelectedListener(bottomNavigationOnClickListener)
+
+        val buttonSearch = findViewById<Button>(R.id.search_button)
+
+        //FAB - set white tint for icon
+        val myButtonSrc = resources.getDrawable(R.drawable.ic_baseline_search_24,null)
+        val willBeBlack = myButtonSrc?.constantState?.newDrawable()
+        willBeBlack?.mutate()?.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+        buttonSearch?.setCompoundDrawables(null, willBeBlack, null, null)
+
+        buttonSearch.setOnClickListener {
+            replaceFragment(SearchFragment())
+        }
 
         hideSystemUI()
     }
