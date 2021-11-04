@@ -32,6 +32,10 @@
         <activity android:name=".ui.place.PlaceActivity"
             android:theme="@style/AppTheme">
         </activity>
+
+        <activity android:name=".ui.search.SearchActivity"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="220dp"
         android:shadowColor="#0B0808"
         android:shadowDx="7"
         android:shadowDy="7"
@@ -35,14 +35,14 @@
         android:textColorHighlight="#0B0A0A"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrow_back_button" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="147dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="220dp"
         android:shadowColor="#050505"
         android:shadowDx="8"
         android:shadowDy="12"

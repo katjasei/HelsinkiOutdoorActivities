@@ -33,9 +33,9 @@ class OverviewFragment: Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         val latLngPlace = LatLng(60.4372, 25.1420)
         val markerOptionsPlace = MarkerOptions().position(latLngPlace).title("Ulappasaarentie 3").icon(
-            bitmapDescriptorFromVector(activity!!, R.drawable.ic_heart_svgrepo_com))
+            bitmapDescriptorFromVector(requireActivity(), R.drawable.ic_heart_svgrepo_com))
         googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLngPlace))
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngPlace, 17f))
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngPlace, 13f))
         googleMap.addMarker(markerOptionsPlace)
     }
 

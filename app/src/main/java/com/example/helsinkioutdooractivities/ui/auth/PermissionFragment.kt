@@ -20,8 +20,7 @@ class PermissionFragment:  Fragment() {
         buttonPermission.setOnClickListener {
             //function login
             // userLogin(valueEmail.text.toString(), valuePassword.text.toString())
-
-             activity!!.finish()
+              requireActivity().finish()
              //move to MainActivity (HomeActivity)
              val intent = Intent(this.context, MainActivity::class.java)
              intent.putExtra("frgToLoad", 0)

@@ -45,7 +45,7 @@
         android:layout_gravity="bottom"
         android:background="@color/white"
         app:itemIconTint="@color/colorPrimary"
-        app:labelVisibilityMode="unlabeled"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/menu" />
 
 </FrameLayout>

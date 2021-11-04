@@ -7,15 +7,13 @@ import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.WindowManager
 import android.widget.Button
-import androidx.fragment.app.Fragment
 import com.example.helsinkioutdooractivities.R
-import com.example.helsinkioutdooractivities.ui.place.GymInformationFragment
 import com.example.helsinkioutdooractivities.ui.place.PlaceActivity
+import com.example.helsinkioutdooractivities.ui.search.SearchActivity
+import com.example.helsinkioutdooractivities.utils.hideSystemUI
+import com.example.helsinkioutdooractivities.utils.replaceFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentListener {
@@ -28,17 +26,16 @@ class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentLis
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val intentFragment = intent.extras!!.getInt("frgToLoad")
 
-        when (intentFragment) {
+        when (intent.extras!!.getInt("frgToLoad")) {
             0 -> {
-                replaceFragment(homeFragment)
+                replaceFragment(homeFragment, supportFragmentManager)
             }
             1 -> {
-                replaceFragment(TabMapFragment())
+                replaceFragment(TabMapFragment(), supportFragmentManager)
             }
             2 -> {
-                replaceFragment(TabPlacesFragment())
+                replaceFragment(TabPlacesFragment(), supportFragmentManager)
             }
         }
 
@@ -54,44 +51,35 @@ class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentLis
         buttonSearch?.setCompoundDrawables(null, willBeBlack, null, null)
 
         buttonSearch.setOnClickListener {
-            replaceFragment(SearchFragment())
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
         }
 
-        hideSystemUI()
+        hideSystemUI(window)
     }
 
     private val bottomNavigationOnClickListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.workouts -> {
                 Log.i("TAG", "${item.title} pressed")
-                    replaceFragment(WorkoutFragment())
+                    replaceFragment(WorkoutFragment(), supportFragmentManager)
 
                 return@OnNavigationItemSelectedListener true
             }
             R.id.home -> {
                 Log.i("TAG", "${item.title} pressed")
-                replaceFragment(HomeFragment())
+                replaceFragment(HomeFragment(), supportFragmentManager)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.profile -> {
                 Log.i("TAG", "${item.title} pressed")
 
-                    replaceFragment(TabProfileFragment())
+                    replaceFragment(TabProfileFragment(), supportFragmentManager)
 
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
-    }
-
-    private fun hideSystemUI() {
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 
     override fun onClickableImageClick() {
@@ -101,12 +89,4 @@ class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentLis
         startActivity(intent)
     }
 
-    //function used for fragment replacement
-    private fun replaceFragment(fragment: Fragment){
-        //fragment manager can help when switching to the other fragment is needed
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
-            .addToBackStack(null)
-            .commit()
-    }
 }

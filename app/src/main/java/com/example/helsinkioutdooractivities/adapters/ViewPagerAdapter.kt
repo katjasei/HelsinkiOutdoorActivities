@@ -6,7 +6,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.helsinkioutdooractivities.ui.home.TabMapFragment
 import com.example.helsinkioutdooractivities.ui.home.TabPlacesFragment
-import com.example.helsinkioutdooractivities.ui.home.TabProfileFragment
 
 private const val NUM_TABS = 2
 

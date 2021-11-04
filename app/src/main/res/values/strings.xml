@@ -32,7 +32,7 @@
     <!--Permission screen-->
     <string name="have_permission">Do we have your permission?</string>
     <string name="permission_text">Allow us to use your location to find outdoor gyms near you.</string>
-    <string name="button_permission">Allow location services?</string>
+    <string name="button_permission">Allow location services</string>
 
     <!--Bottom menu-->
     <string name="home">Home</string>
@@ -59,4 +59,17 @@
     <string name="desc_profile_image">Your profile image</string>
     <string name="txt_current_user">Current user</string>
     <string name="txt_con_desc_blue_pic">blue background picture</string>
+
+    <string name="cd_team_ph">Image</string>
+    <string name="gym_title">Title</string>
+
+    <!--Search-->
+    <string name="txt_search">   Search…</string>
+
+    <string name="txt_username">Username</string>
+
+    <!--Workout planner fragment-->
+    <string name="workout_plan">Workout plans</string>
+    <string name="create">Create</string>
+
 </resources>

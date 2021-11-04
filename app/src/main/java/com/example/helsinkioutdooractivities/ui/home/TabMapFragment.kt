@@ -32,7 +32,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class TabMapFragment: Fragment(), OnMapReadyCallback {
 
-    private lateinit var currentLocation: Location
+    private lateinit var currentLocation: LatLng
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val permissionCode = 101
 
@@ -49,7 +49,7 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
         val floatingActionButton = view?.findViewById<FloatingActionButton>(R.id.floating_action_button)
 
         floatingActionButton?.setOnClickListener {
-            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context!!.applicationContext)
+            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext().applicationContext)
             val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
             mapFragment.getMapAsync(this)
         }
@@ -64,22 +64,21 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
 
     private fun fetchLocation() {
         if (ActivityCompat.checkSelfPermission(
-                context!!, android.Manifest.permission.ACCESS_FINE_LOCATION) !=
+                requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) !=
             PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                context!!, android.Manifest.permission.ACCESS_COARSE_LOCATION) !=
+                requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) !=
             PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
-                activity!!,
+                requireActivity(),
                 arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), permissionCode)
             return
         }
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context!!.applicationContext)
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext().applicationContext)
 
         val task = fusedLocationProviderClient.lastLocation
         task.addOnSuccessListener { location ->
             if (location != null) {
-                currentLocation = location
-
+                currentLocation = LatLng(location.latitude, location.longitude)
                 Toast.makeText(context, currentLocation.latitude.toString() + "" +
                         currentLocation.longitude, Toast.LENGTH_SHORT).show()
                 val supportMapFragment = (childFragmentManager.findFragmentById(R.id.map) as
@@ -98,7 +97,7 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
 
         val latLngPlace = LatLng(60.4372, 25.1420)
         val markerOptionsPlace = MarkerOptions().position(latLngPlace).title("Ulappasaarentie 3").icon(
-            bitmapDescriptorFromVector(activity!!, R.drawable.ic_heart_svgrepo_com))
+            bitmapDescriptorFromVector(requireActivity(), R.drawable.ic_heart_svgrepo_com))
         googleMap?.addMarker(markerOptionsPlace)
     }
 
