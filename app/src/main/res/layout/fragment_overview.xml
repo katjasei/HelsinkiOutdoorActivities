@@ -72,7 +72,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="38dp"
         android:text="@string/address1"
-        android:textSize="16"
+        android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/map" />
@@ -91,11 +91,11 @@
         android:id="@+id/textView4"
         android:layout_width="43dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="Route"
         android:textColor="#115F9E"
-        android:textSize="16"
+        android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
