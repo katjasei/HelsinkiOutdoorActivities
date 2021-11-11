@@ -38,11 +38,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/distance_gym_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="147dp"
         android:layout_marginTop="220dp"
+        android:layout_marginEnd="16dp"
         android:shadowColor="#050505"
         android:shadowDx="8"
         android:shadowDy="12"
@@ -50,7 +50,7 @@
         android:text="2,3 km"
         android:textColor="#FDFCFC"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

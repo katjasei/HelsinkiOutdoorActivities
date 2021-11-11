@@ -66,7 +66,7 @@
         app:srcCompat="@drawable/time_clock" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/text_address_below_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

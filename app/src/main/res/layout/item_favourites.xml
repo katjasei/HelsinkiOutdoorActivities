@@ -42,13 +42,15 @@
                     android:scaleType="centerCrop">
                 </ImageView>
 
+
                 <Button
                     android:id="@+id/button_favorites"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="210dp"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/ic_baseline_favorite_red" />
+                    android:background="@drawable/ic_baseline_favorite_red"
+                    app:backgroundTint="@null"/>
 
             </RelativeLayout>
 

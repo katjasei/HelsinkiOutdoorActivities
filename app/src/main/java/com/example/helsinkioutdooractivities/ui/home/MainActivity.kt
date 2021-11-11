@@ -9,17 +9,24 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import com.example.helsinkioutdooractivities.R
+import com.example.helsinkioutdooractivities.ui.auth.AuthActivity
+import com.example.helsinkioutdooractivities.ui.place.GymInformationFragment
 import com.example.helsinkioutdooractivities.ui.place.PlaceActivity
 import com.example.helsinkioutdooractivities.ui.search.SearchActivity
 import com.example.helsinkioutdooractivities.utils.hideSystemUI
 import com.example.helsinkioutdooractivities.utils.replaceFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 
-class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentListener {
+class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentListener,
+TabFavourites.TabFavouritesListener{
 
     //VARIABLES:
     private val homeFragment = HomeFragment()
+    //firebase auth object
+    private var mFirebaseAuth = FirebaseAuth.getInstance()
+
 
     //FUNCTIONS:
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -54,7 +61,6 @@ class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentLis
             val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent)
         }
-
         hideSystemUI(window)
     }
 
@@ -69,6 +75,11 @@ class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentLis
             R.id.home -> {
                 Log.i("TAG", "${item.title} pressed")
                 replaceFragment(HomeFragment(), supportFragmentManager)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.weather -> {
+                Log.i("TAG", "${item.title} pressed")
+                    replaceFragment(WeatherFragment(), supportFragmentManager)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.profile -> {
@@ -86,6 +97,17 @@ class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentLis
         //run new activity
         //move to PlaceActivity
         val intent = Intent(this, PlaceActivity::class.java)
+        intent.putExtra("Address",  "Ulappansaarentie 3")
+        intent.putExtra("GymImage", R.drawable.places1)
+        intent.putExtra("Distance", "2,3 km")
+        startActivity(intent)
+    }
+
+    override fun onButtonLogOutClick() {
+        //user logout
+        mFirebaseAuth.signOut()
+        //start new Activity - go to FirstScreen/LogIn, SighUp screen
+        val intent = Intent(this, AuthActivity::class.java)
         startActivity(intent)
     }
 
