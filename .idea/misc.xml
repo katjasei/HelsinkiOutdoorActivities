@@ -35,6 +35,8 @@
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/drawable/white_circle.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/activity_auth.xml" value="0.14175724637681159" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/activity_place.xml" value="0.1983695652173913" />
+        <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/activity_profile.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_comments.xml" value="0.2" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_create_exercise.xml" value="0.2" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_createplan.xml" value="0.1983695652173913" />
@@ -43,6 +45,7 @@
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_equipments.xml" value="0.2" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_exercise.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_first.xml" value="0.176" />
+        <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_gym_informatin.xml" value="0.17346014492753623" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_home.xml" value="0.152" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_login.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_map.xml" value="0.152" />
@@ -51,10 +54,17 @@
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_places.xml" value="0.2" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_profile.xml" value="0.21467391304347827" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_registration.xml" value="0.2" />
+        <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_settings.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_splash.xml" value="0.176" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_timer.xml" value="0.1983695652173913" />
+        <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_workout.xml" value="0.1983695652173913" />
+        <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_workout_equipment.xml" value="0.1983695652173913" />
+        <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_workout_history.xml" value="0.1983695652173913" />
+        <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_workout_planner.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_workouts.xml" value="0.264" />
         <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/gym_informatin.xml" value="0.2" />
+        <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/item_favourites.xml" value="0.1983695652173913" />
+        <entry key="..\:/Users/silja/AndroidStudioProjects/HelsinkiOutdoorActivities/app/src/main/res/layout/item_gym.xml" value="0.1983695652173913" />
       </map>
     </option>
   </component>
