@@ -29,7 +29,7 @@ class FirstFragment: Fragment()  {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_first, container, false)
         val buttonSignUp = view.findViewById<Button>(R.id.btn_sign_up)
-        val buttonSignIn = view.findViewById<Button>(R.id.btn_sign_in)
+        val buttonSignIn = view.findViewById<Button>(R.id.btn_login)
 
         //callbacks for buttons in this fragment
         //button Sign Up

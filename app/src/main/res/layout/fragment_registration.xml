@@ -10,22 +10,20 @@
 
     <ImageView
         android:id="@+id/background_picture"
-        android:layout_width="wrap_content"
+        android:layout_width="750dp"
         android:layout_height="0dp"
         android:alpha="0.61"
         android:contentDescription="@null"
-        android:scaleType="center"
+        android:scaleType="centerCrop"
         android:src="@drawable/main_theme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="ImageContrastCheck" />
 
     <EditText
-        android:id="@+id/comment"
+        android:id="@+id/value_user_name"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -61,7 +59,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comment" />
+        app:layout_constraintTop_toBottomOf="@+id/value_user_name" />
 
     <EditText
         android:id="@+id/value_email"
