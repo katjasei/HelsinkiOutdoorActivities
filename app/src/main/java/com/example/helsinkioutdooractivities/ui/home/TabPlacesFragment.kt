@@ -2,6 +2,7 @@ package com.example.helsinkioutdooractivities.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,14 +42,15 @@ class TabPlacesFragment: Fragment() {
             activityCallBack!!.onClickableImageClick()
         }
 
-        gymList.add(GymListItem("Merikorttitie 3","1", R.drawable.gym1))
-        gymList.add(GymListItem("Vanhatie 2","2", R.drawable.gym2))
+        gymList.add(GymListItem("Merikorttitie 3","3,5 km", R.drawable.gym1))
+        gymList.add(GymListItem("Vanhatie 2","10 km", R.drawable.gym2))
 
         val adapter = GymsAdapter(
             activity!!,
             this@TabPlacesFragment.context!!,
             gymList
         )
+
         gymView.adapter = adapter
         val linearLayoutManager = LinearLayoutManager(this@TabPlacesFragment.context!!)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL

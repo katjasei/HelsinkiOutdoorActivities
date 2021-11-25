@@ -7,6 +7,12 @@
         <item name="colorPrimary">#1E6F8A</item>
         <item name="colorPrimaryDark">#52c7b8</item>
         <item name="colorAccent">#00675b</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+    </style>
+
+    <style name="WhiteButton" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorOnPrimary">#FFFFFF</item>
     </style>
 
 </resources>

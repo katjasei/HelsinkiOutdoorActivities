@@ -3,20 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="660dp">
+    android:layout_height="700dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="#FFFFFF">
 
         <ImageView
             android:id="@+id/clickable_image"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
             android:background="@color/white"
             android:contentDescription="ghg"
             android:scaleType="fitStart"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +32,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/ic_baseline_favorite_24"
+            app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="370dp"
+            android:layout_marginBottom="24dp"
             android:shadowColor="#0B0808"
             android:shadowDx="7"
             android:shadowDy="7"
@@ -48,15 +51,15 @@
             android:textColor="#FDF9F9"
             android:textColorHighlight="#0B0A0A"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/clickable_image"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="147dp"
-            android:layout_marginTop="370dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
             android:shadowColor="#050505"
             android:shadowDx="8"
             android:shadowDy="12"
@@ -64,28 +67,29 @@
             android:text="2,3 km"
             android:textColor="#FDFCFC"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/clickable_image"
+            app:layout_constraintEnd_toEndOf="@+id/clickable_image" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="430dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/places_header"
             android:textColor="@android:color/darker_gray"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/gyms_view"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/places_header" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/gyms_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="470dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

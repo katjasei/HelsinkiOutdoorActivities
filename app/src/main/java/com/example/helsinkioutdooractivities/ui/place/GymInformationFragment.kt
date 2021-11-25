@@ -11,17 +11,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.helsinkioutdooractivities.R
+import com.example.helsinkioutdooractivities.adapters.GymsAdapter
 import com.example.helsinkioutdooractivities.adapters.ViewPagerAdapter
 import com.example.helsinkioutdooractivities.adapters.ViewPagerAdapterGymInformation
+import com.example.helsinkioutdooractivities.data.model.GymListItem
 import com.example.helsinkioutdooractivities.ui.home.MainActivity
 import com.example.helsinkioutdooractivities.ui.home.TabPlacesFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.android.synthetic.main.fragment_gym_informatin.*
 
 class GymInformationFragment: Fragment() {
 
-    //public val placesFragment = TabPlacesFragment();
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -53,7 +56,12 @@ class GymInformationFragment: Fragment() {
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
+        val arguments = arguments
+        if(arguments != null) {
+            imageView2.setImageResource(arguments.getInt("GymImage"))
+            textView.text = arguments.getString("Address")
+            distance_gym_fragment.text = arguments.getString("Distance")
+        }
         val arrowBackFab = view?.findViewById<FloatingActionButton>(R.id.arrow_back_button)
 
         //FAB - set white tint for icon
@@ -71,4 +79,9 @@ class GymInformationFragment: Fragment() {
 
         }
     }
+
+
+
+
+
 }
