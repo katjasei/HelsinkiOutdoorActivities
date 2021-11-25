@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_registration.*
 
 
 class RegistrationFragment: Fragment() {
-
+// Katja
     //VARIABLES:
     //firebase auth object
     private  var mAuth = FirebaseAuth.getInstance()
