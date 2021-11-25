@@ -18,12 +18,26 @@ import com.example.helsinkioutdooractivities.utils.PreferenceHelper.password
 import com.example.helsinkioutdooractivities.utils.PreferenceHelper.userEmail
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.value_email
+import kotlinx.android.synthetic.main.fragment_login.value_password
+import kotlinx.android.synthetic.main.fragment_registration.*
 
 class LoginFragment: Fragment() {
 
     //VARIABLES:
     //firebase auth object
     private var mFirebaseAuth = FirebaseAuth.getInstance()
+    //callback variable, interface and onAttach fun
+    private var activityCallBack: LoginFragment.LoginFragmentListener? = null
+
+    //INTERFACES AND FUNCTIONS:
+    interface LoginFragmentListener {
+        fun onButtonLogInClicked()
+    }
+    override fun onAttach(context: Context)   {
+        super.onAttach(context)
+        activityCallBack =  context as LoginFragmentListener
+    }
 
 
     //FUNCTIONS:
@@ -58,10 +72,7 @@ class LoginFragment: Fragment() {
             mFirebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        requireActivity().finish()
-                        //move to MainActivity (HomeActivity)
-                        val intent = Intent(this.context, MainActivity::class.java)
-                        startActivity(intent)
+                     //   activityCallBack!!.onButtonLogInClicked()
                     } else {
                         txt_login_fail.visibility = View.VISIBLE
                         txt_login_fail.text = "Email or password is incorrect"

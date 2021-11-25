@@ -84,4 +84,10 @@
     <string name="location_loading">Loading location</string>
     <string name="temperature">0°C</string>
 
+    <!--Exercise-->
+    <string name="exercise_name">exercise_name</string>
+    <string name="area_of_focus">area of focus</string>
+    <string name="instruction">instruction</string>
+    <string name="add_exercise">Add exercise</string>
+
 </resources>

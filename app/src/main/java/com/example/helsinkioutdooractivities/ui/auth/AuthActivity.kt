@@ -13,7 +13,7 @@ import com.example.helsinkioutdooractivities.utils.replaceFragment
 import com.example.helsinkioutdooractivities.viewModel.LoginViewModel
 
 class AuthActivity:  AppCompatActivity(), FirstFragment.FirstFragmentListener,
-RegistrationFragment.RegistrationFragmentListener{
+RegistrationFragment.RegistrationFragmentListener, LoginFragment.LoginFragmentListener{
 
     //Create a new Fragment to be placed in the activity layout
     private val firstFragment = FirstFragment()
@@ -31,7 +31,6 @@ RegistrationFragment.RegistrationFragmentListener{
         setContentView(R.layout.activity_auth)
         replaceFragment(splashScreenFragment, supportFragmentManager)
         observeAuthenticationState()
-
         hideSystemUI(window)
     }
 
@@ -71,17 +70,16 @@ RegistrationFragment.RegistrationFragmentListener{
     override fun onButtonSignInClick() {
         replaceFragment(loginFragment, supportFragmentManager)
     }
-/*
-    //when button "log in" clicked from FirstFragment
-    override fun onButtonLogInClick() {
-        replaceFragment(permissionFragment, supportFragmentManager)
-    }
-*/
+
     override fun onButtonSignUpClickFromRegistration(username: String) {
-        replaceFragment(permissionFragment, supportFragmentManager)
+       // replaceFragment(permissionFragment, supportFragmentManager)
         //do I need it???? Bundle
-        bundle.putCharSequence("username" , username)
+        //bundle.putCharSequence("username" , username)
        // welcomeFragment.arguments = bundle
+    }
+
+    override fun onButtonLogInClicked() {
+        replaceFragment(permissionFragment, supportFragmentManager)
     }
 
 

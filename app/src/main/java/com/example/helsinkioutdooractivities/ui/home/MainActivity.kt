@@ -10,7 +10,6 @@ import android.util.Log
 import android.widget.Button
 import com.example.helsinkioutdooractivities.R
 import com.example.helsinkioutdooractivities.ui.auth.AuthActivity
-import com.example.helsinkioutdooractivities.ui.place.GymInformationFragment
 import com.example.helsinkioutdooractivities.ui.place.PlaceActivity
 import com.example.helsinkioutdooractivities.ui.search.SearchActivity
 import com.example.helsinkioutdooractivities.utils.hideSystemUI
@@ -20,7 +19,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentListener,
-TabFavourites.TabFavouritesListener{
+TabFavourites.TabFavouritesListener, TabWorkoutPlanFragment.TabWorkoutPlanFragmentListener,
+AddExerciseFragment.AddExerciseFragmentListener{
 
     //VARIABLES:
     private val homeFragment = HomeFragment()
@@ -43,6 +43,10 @@ TabFavourites.TabFavouritesListener{
             }
             2 -> {
                 replaceFragment(TabPlacesFragment(), supportFragmentManager)
+            }
+
+            3-> {
+                replaceFragment(TabWorkoutPlanFragment(), supportFragmentManager)
             }
         }
 
@@ -109,6 +113,14 @@ TabFavourites.TabFavouritesListener{
         //start new Activity - go to FirstScreen/LogIn, SighUp screen
         val intent = Intent(this, AuthActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun onButtonCreateExerciseClick() {
+        replaceFragment(AddExerciseFragment(), supportFragmentManager)
+    }
+
+    override fun onButtonArrowBackClicked() {
+        replaceFragment(TabWorkoutPlanFragment(), supportFragmentManager)
     }
 
 }

@@ -32,7 +32,4 @@ class PlaceActivity : AppCompatActivity(){
         // println(intent.extras?.get("Address"))
     }
 
-
-
-
 }
