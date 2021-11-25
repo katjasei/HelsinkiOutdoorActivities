@@ -1,7 +1,10 @@
 package com.example.helsinkioutdooractivities.ui.home
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.location.Location
@@ -9,9 +12,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.helsinkioutdooractivities.R
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -20,15 +23,16 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.util.jar.Manifest
+
 
 class TabMapFragment: Fragment(), OnMapReadyCallback {
 
-    private lateinit var currentLocation: Location
+    private lateinit var currentLocation: LatLng
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val permissionCode = 101
 
@@ -45,7 +49,7 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
         val floatingActionButton = view?.findViewById<FloatingActionButton>(R.id.floating_action_button)
 
         floatingActionButton?.setOnClickListener {
-            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context!!.applicationContext)
+            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext().applicationContext)
             val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
             mapFragment.getMapAsync(this)
         }
@@ -60,21 +64,21 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
 
     private fun fetchLocation() {
         if (ActivityCompat.checkSelfPermission(
-                context!!, android.Manifest.permission.ACCESS_FINE_LOCATION) !=
+                requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) !=
             PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                context!!, android.Manifest.permission.ACCESS_COARSE_LOCATION) !=
+                requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) !=
             PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
-                activity!!,
+                requireActivity(),
                 arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), permissionCode)
             return
         }
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context!!.applicationContext)
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext().applicationContext)
+
         val task = fusedLocationProviderClient.lastLocation
         task.addOnSuccessListener { location ->
             if (location != null) {
-                currentLocation = location
-
+                currentLocation = LatLng(location.latitude, location.longitude)
                 Toast.makeText(context, currentLocation.latitude.toString() + "" +
                         currentLocation.longitude, Toast.LENGTH_SHORT).show()
                 val supportMapFragment = (childFragmentManager.findFragmentById(R.id.map) as
@@ -86,10 +90,33 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap?) {
         val latLng = LatLng(currentLocation.latitude, currentLocation.longitude)
         val markerOptions = MarkerOptions().position(latLng).title("Your current location").icon(
-            BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+            BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
         googleMap?.animateCamera(CameraUpdateFactory.newLatLng(latLng))
-        googleMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17f))
+        googleMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
         googleMap?.addMarker(markerOptions)
+
+        val latLngPlace = LatLng(60.4372, 25.1420)
+        val markerOptionsPlace = MarkerOptions().position(latLngPlace).title("Ulappasaarentie 3").icon(
+            bitmapDescriptorFromVector(requireActivity(), R.drawable.ic_heart_svgrepo_com))
+        googleMap?.addMarker(markerOptionsPlace)
+    }
+
+    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+        val vectorDrawable = ContextCompat.getDrawable(context, vectorResId)
+        vectorDrawable!!.setBounds(
+            0,
+            0,
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight
+        )
+        val bitmap = Bitmap.createBitmap(
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        vectorDrawable.draw(canvas)
+        return BitmapDescriptorFactory.fromBitmap(bitmap)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String?>,

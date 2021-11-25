@@ -32,7 +32,7 @@
             android:layout_alignEnd="@id/map"
             android:layout_alignParentTop="true"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="669dp"
+            android:layout_marginTop="592dp"
             android:layout_marginEnd="16dp"
             android:contentDescription="@string/desc_map_center"
             android:tint="@color/white"

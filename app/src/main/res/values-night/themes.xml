@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.HelsinkiOutdoorActivities" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimary</item>
-        <item name="colorOnPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@null</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/colorPrimary</item>
         <item name="colorSecondaryVariant">@color/colorPrimary</item>

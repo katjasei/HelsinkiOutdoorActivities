@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "888117087694",
+    "project_id": "helsinkioutdoorexersices",
+    "storage_bucket": "helsinkioutdoorexersices.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888117087694:android:ed445c9be9f8dd7651ef9f",
+        "android_client_info": {
+          "package_name": "com.example.helsinkioutdooractivities"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888117087694-nigib9os89f7uvv5iscdigl8ru36d1fb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.helsinkioutdooractivities",
+            "certificate_hash": "84f28164f72e449d551f1706c5dcf1818284dd29"
+          }
+        },
+        {
+          "client_id": "888117087694-tgrq2t0pk8t2d3r2dg6l1p4h7dje8e7r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVq4-favVsjpQ3y5fYYNk8ijZ8_JmFXoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888117087694-tgrq2t0pk8t2d3r2dg6l1p4h7dje8e7r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

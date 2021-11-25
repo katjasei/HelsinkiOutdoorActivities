@@ -1,81 +1,126 @@
 package com.example.helsinkioutdooractivities.ui.home
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
+import android.util.Log
+import android.widget.Button
 import com.example.helsinkioutdooractivities.R
-import com.google.android.material.tabs.TabLayout
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.widget.ViewPager2
-import com.example.helsinkioutdooractivities.ViewPagerAdapter
-import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
-import com.google.android.material.tabs.TabLayout.TabLayoutOnPageChangeListener
-import com.google.android.material.tabs.TabLayoutMediator
+import com.example.helsinkioutdooractivities.ui.auth.AuthActivity
+import com.example.helsinkioutdooractivities.ui.place.PlaceActivity
+import com.example.helsinkioutdooractivities.ui.search.SearchActivity
+import com.example.helsinkioutdooractivities.utils.hideSystemUI
+import com.example.helsinkioutdooractivities.utils.replaceFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
-val tabNamesArray = arrayOf(
-    "Map",
-    "Places",
-    "Profile"
-)
 
-class MainActivity : AppCompatActivity() {
-    //lateinit var binding: ActivityMainBinding
+class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentListener,
+TabFavourites.TabFavouritesListener, TabWorkoutPlanFragment.TabWorkoutPlanFragmentListener,
+AddExerciseFragment.AddExerciseFragmentListener{
+
+    //VARIABLES:
+    private val homeFragment = HomeFragment()
+    //firebase auth object
+    private var mFirebaseAuth = FirebaseAuth.getInstance()
+
+
+    //FUNCTIONS:
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
-        val viewPager2 = findViewById<ViewPager2>(R.id.viewPager)
 
-        val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
-
-        viewPager2.adapter = adapter
-
-        TabLayoutMediator(tabLayout, viewPager2) { tab,position ->
-            when (position) {
-                0 -> {
-                    tab.text = "MAP"
-                }
-                1 -> {
-                    tab.text = "PLACES"
-                }
-                2 -> {
-                    tab.text = "PROFILE"
-                }
+        when (intent.extras!!.getInt("frgToLoad")) {
+            0 -> {
+                replaceFragment(homeFragment, supportFragmentManager)
             }
-        }.attach()
-
-        hideSystemUI()
-
-
-
-       /* tabLayout.addTab(tabLayout.newTab().setText("Map"))
-        tabLayout.addTab(tabLayout.newTab().setText("Places"))
-        tabLayout.addTab(tabLayout.newTab().setText("Profile"))
-        tabLayout.tabGravity = TabLayout.GRAVITY_FILL
-        val adapter = MyAdapter(
-            this, supportFragmentManager,
-            tabLayout.tabCount
-        )
-        viewPager.adapter = adapter
-        viewPager.addOnPageChangeListener(TabLayoutOnPageChangeListener(tabLayout))
-        tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                viewPager.currentItem = tab.position
+            1 -> {
+                replaceFragment(TabMapFragment(), supportFragmentManager)
+            }
+            2 -> {
+                replaceFragment(TabPlacesFragment(), supportFragmentManager)
             }
 
-            override fun onTabUnselected(tab: TabLayout.Tab) {}
-            override fun onTabReselected(tab: TabLayout.Tab) {}
-        })*/
+            3-> {
+                replaceFragment(TabWorkoutPlanFragment(), supportFragmentManager)
+            }
+        }
+
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener(bottomNavigationOnClickListener)
+
+        val buttonSearch = findViewById<Button>(R.id.search_button)
+
+        //FAB - set white tint for icon
+        val myButtonSrc = resources.getDrawable(R.drawable.ic_baseline_search_24,null)
+        val willBeBlack = myButtonSrc?.constantState?.newDrawable()
+        willBeBlack?.mutate()?.setColorFilter(Color.DKGRAY, PorterDuff.Mode.MULTIPLY)
+        buttonSearch?.setCompoundDrawables(null, willBeBlack, null, null)
+
+        buttonSearch.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
+        hideSystemUI(window)
     }
 
-    private fun hideSystemUI() {
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_FULLSCREEN)
+    private val bottomNavigationOnClickListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.workouts -> {
+                Log.i("TAG", "${item.title} pressed")
+                    replaceFragment(WorkoutFragment(), supportFragmentManager)
+
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.home -> {
+                Log.i("TAG", "${item.title} pressed")
+                replaceFragment(HomeFragment(), supportFragmentManager)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.weather -> {
+                Log.i("TAG", "${item.title} pressed")
+                    replaceFragment(WeatherFragment(), supportFragmentManager)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.profile -> {
+                Log.i("TAG", "${item.title} pressed")
+
+                    replaceFragment(TabProfileFragment(), supportFragmentManager)
+
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
     }
+
+    override fun onClickableImageClick() {
+        //run new activity
+        //move to PlaceActivity
+        val intent = Intent(this, PlaceActivity::class.java)
+        intent.putExtra("Address",  "Ulappansaarentie 3")
+        intent.putExtra("GymImage", R.drawable.places1)
+        intent.putExtra("Distance", "2,3 km")
+        startActivity(intent)
+    }
+
+    override fun onButtonLogOutClick() {
+        //user logout
+        mFirebaseAuth.signOut()
+        //start new Activity - go to FirstScreen/LogIn, SighUp screen
+        val intent = Intent(this, AuthActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun onButtonCreateExerciseClick() {
+        replaceFragment(AddExerciseFragment(), supportFragmentManager)
+    }
+
+    override fun onButtonArrowBackClicked() {
+        replaceFragment(TabWorkoutPlanFragment(), supportFragmentManager)
+    }
+
 }
