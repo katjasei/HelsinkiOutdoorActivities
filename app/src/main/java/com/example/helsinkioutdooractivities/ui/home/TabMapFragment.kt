@@ -28,6 +28,11 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import retrofit2.Call
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 
 class TabMapFragment: Fragment(), OnMapReadyCallback {
@@ -127,5 +132,74 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
             fetchLocation()
         }
         }
+    }
+
+
+    object DemoApi {
+
+        private const val URL = "https://www.googleapis.com/"
+        object Model {
+
+            data class DataResponse(
+                val kind: String,
+                val etag: String,
+                val pageInfo: PageInfo,
+                val items: List<PlaylistItems>
+            )
+
+            data class PageInfo (
+                val totalResults: Int,
+                val resultsPerPage: Int
+            )
+
+            data class PlaylistItems (
+                val kind: String,
+                val etag: String,
+                val id: String,
+                val snippet: Snippet
+            )
+            data class Snippet (
+                val publishedAt: String,
+                val channelID: String,
+                val title: String,
+                val description: String,
+                val thumbnails: Thumbnails,
+                val channelTitle: String,
+                val localized: Localized
+            )
+            data class Localized (
+                val title: String,
+                val description: String)
+
+            data class Thumbnails (
+                val default: Description,
+                val medium: Description,
+                val high: Description,
+                val standard: Description,
+                val maxres: Description
+            )
+        }
+        data class Description (
+            val url: String,
+            val width: Int,
+            val height:Int)
+
+        interface Service {
+            @GET("youtube/v3/playlists")
+            fun getPlaylists(
+                @Query("part") part: String,
+                @Query("maxResults") maxResults: Int,
+                @Query("channelId") channelId: String,
+                @Query("key") apiKey: String):
+                    Call<Model.DataResponse>
+        }
+
+        private val retrofit = Retrofit.Builder()
+            .baseUrl(URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service: Service = retrofit.create(
+            Service::class.java)
+
     }
 }
