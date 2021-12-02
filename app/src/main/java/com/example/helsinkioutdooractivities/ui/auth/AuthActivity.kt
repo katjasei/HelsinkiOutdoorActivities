@@ -78,6 +78,14 @@ RegistrationFragment.RegistrationFragmentListener, LoginFragment.LoginFragmentLi
        // welcomeFragment.arguments = bundle
     }
 
+    override fun onArrowBackButtonClicked() {
+        replaceFragment(FirstFragment(), supportFragmentManager)
+    }
+
+    override fun onButtonArrowBackClicked() {
+        replaceFragment(FirstFragment(), supportFragmentManager)
+    }
+
     override fun onButtonLogInClicked() {
         replaceFragment(permissionFragment, supportFragmentManager)
     }
