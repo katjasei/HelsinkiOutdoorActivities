@@ -34,6 +34,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:contentDescription="@string/cd_team_ph"
+                android:foreground="@drawable/gradient"
                 android:scaleType="centerCrop">
 
             </ImageView>

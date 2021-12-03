@@ -13,6 +13,7 @@
         android:layout_height="270dp"
         android:background="@color/white"
         android:contentDescription="ghg"
+        android:foreground="@drawable/gradient"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
