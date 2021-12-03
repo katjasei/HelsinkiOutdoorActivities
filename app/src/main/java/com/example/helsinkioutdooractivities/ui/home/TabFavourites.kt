@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.helsinkioutdooractivities.R
@@ -16,8 +17,7 @@ import com.google.android.material.button.MaterialButton
 
 class TabFavourites: Fragment() {
 
-    private var favouritesList: MutableList<FavouritesListItem
-            > = java.util.ArrayList()
+    private var favouritesList: MutableList<FavouritesListItem> = java.util.ArrayList()
 
     private var activityCallBack: TabFavouritesListener? = null
 
@@ -48,9 +48,9 @@ class TabFavourites: Fragment() {
             favouritesList
         )
         favouritesView.adapter = adapter
-        val linearLayoutManager = LinearLayoutManager(this@TabFavourites.context!!)
-        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-        favouritesView.layoutManager = linearLayoutManager
+        val gridLayoutManager = GridLayoutManager(this@TabFavourites.context!!, 2)
+       // linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+        favouritesView.layoutManager = gridLayoutManager
 
         return view
     }

@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_registration.*
 
 
 class RegistrationFragment: Fragment() {
-
+// Katja
     //VARIABLES:
     //firebase auth object
     private  var mAuth = FirebaseAuth.getInstance()
@@ -38,6 +38,7 @@ class RegistrationFragment: Fragment() {
     //INTERFACES AND FUNCTIONS:
     interface RegistrationFragmentListener {
         fun onButtonSignUpClickFromRegistration(username: String)
+        fun onArrowBackButtonClicked()
     }
     override fun onAttach(context: Context)   {
         super.onAttach(context)
@@ -58,6 +59,10 @@ class RegistrationFragment: Fragment() {
         onFocusChangedListener(value_user_name,txt_duplicate_name)
         //when user enters email -> onFocusChange event
         onFocusChangedListener(value_email,txt_duplicate_email)
+
+        arrow_back_button_registration.setOnClickListener {
+            activityCallBack!!.onArrowBackButtonClicked()
+        }
 
         btn_sign_up.setOnClickListener {
             //using the preferences from PreferenceHelper
