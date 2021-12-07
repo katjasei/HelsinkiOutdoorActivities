@@ -16,6 +16,7 @@ import com.example.helsinkioutdooractivities.ui.home.MainActivity
 import com.example.helsinkioutdooractivities.utils.PreferenceHelper
 import com.example.helsinkioutdooractivities.utils.PreferenceHelper.password
 import com.example.helsinkioutdooractivities.utils.PreferenceHelper.userEmail
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.value_email
@@ -28,10 +29,11 @@ class LoginFragment: Fragment() {
     //firebase auth object
     private var mFirebaseAuth = FirebaseAuth.getInstance()
     //callback variable, interface and onAttach fun
-    private var activityCallBack: LoginFragment.LoginFragmentListener? = null
+    private var activityCallBack: LoginFragmentListener? = null
 
     //INTERFACES AND FUNCTIONS:
     interface LoginFragmentListener {
+        fun onButtonArrowBackClicked()
         fun onButtonLogInClicked()
     }
     override fun onAttach(context: Context)   {
@@ -45,6 +47,7 @@ class LoginFragment: Fragment() {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_login, container, false)
         val buttonLogin = view.findViewById<Button>(R.id.btn_sign_in)
+        val buttonArrowBack = view.findViewById<FloatingActionButton>(R.id.arrow_back_button_login)
         val valueEmail = view.findViewById<TextView>(R.id.value_email)
         val valuePassword = view.findViewById<TextView>(R.id.value_password)
 
@@ -52,6 +55,10 @@ class LoginFragment: Fragment() {
         buttonLogin.setOnClickListener {
             //function login
             userLogin(valueEmail.text.toString(), valuePassword.text.toString())
+        }
+
+        buttonArrowBack.setOnClickListener {
+            activityCallBack!!.onButtonArrowBackClicked()
         }
 
         //using the preferences from PreferenceHelper

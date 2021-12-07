@@ -23,13 +23,13 @@ class PlaceActivity : AppCompatActivity(){
         hideSystemUI(window)
 
         bundle.putString("Address", intent.extras?.get("Address") as String?)
-        bundle.putInt("GymImage", intent.extras?.get("GymImage") as Int)
+        bundle.putString("GymImage", intent.extras?.get("GymImage") as String)
         bundle.putString("Distance", intent.extras?.get("Distance") as String)
 
         gymInformationFragment.arguments = bundle
 
         replaceFragment(gymInformationFragment, supportFragmentManager)
-        // println(intent.extras?.get("Address"))
+
     }
 
 }

@@ -42,8 +42,8 @@ class TabPlacesFragment: Fragment() {
             activityCallBack!!.onClickableImageClick()
         }
 
-        gymList.add(GymListItem("Merikorttitie 3","3,5 km", R.drawable.gym1))
-        gymList.add(GymListItem("Vanhatie 2","10 km", R.drawable.gym2))
+        gymList.add(GymListItem("Merikorttitie 3","3,5 km", "https://www.tgogc.com/UserFiles/Images/NewsImages/TGO504%20Parallel%20Bars_Peckham%20Rye%20park%20(233).jpg"))
+        gymList.add(GymListItem("Vanhatie 2","10 km", "https://www.lakewood.org/files/assets/public/community-resources/recreation/outdoor-fitness-ropes.jpg?w=1200"))
 
         val adapter = GymsAdapter(
             activity!!,
