@@ -51,6 +51,7 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
     private val permissionCode = 101
     var locationList: MutableList<ClassLocation> = java.util.ArrayList()
     private var locationMap: GoogleMap? = null
+    val bundle = Bundle()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -167,7 +168,7 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
                 val infoUrl: String,
                 val modifiedAt: String,
                 val location: LocationClass,
-                val description: Description,
+                val description: Description?,
                 val tags: List<Tag>,
                 val openingHours: OpeningHours,
                 val extra_searchword: List<String>
@@ -205,11 +206,11 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
             data class Description(
                 val intro: String,
                 val body: String,
-                val images: List<Image>
+                val images: List<Image>?
             )
 
             data class Image(
-                val url: String,
+                val url: String?,
                 val copyrightHolder: String,
                 val licenseType: String,
                 val media_id: String
@@ -264,30 +265,39 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
 
     private fun callWebservice(){
 
-        val call = DemoApi.service.getLocations("NATURE & SPORTS")
+        val call = DemoApi.service.getLocations("GymFitness")
         val value = object: Callback<DemoApi.Model.DataResponse>
 
         {
             override fun onResponse(call: Call<DemoApi.Model.DataResponse>, response: Response<DemoApi.Model.DataResponse>) {
-
+                var i = 0
+                var imageUrl = ""
                 val res: DemoApi.Model.DataResponse = response.body()!!
 
-               // println(res.data)
-
                 res.data.forEach {
-                    locationList.add(ClassLocation(it.location.address.street_address, it.name.en, it.location.lat, it.location.lon))
+                    if(it.description != null && it.description.images?.size != 0 &&
+                            it.description.images?.get(0)?.url != null) {
+                        imageUrl = it.description.images[0].url!!
+                    }
+                    locationList.add(ClassLocation(it.location.address.street_address, it.name.en, it.location.lat, it.location.lon, imageUrl))
                 }
 
-                println(locationList)
            locationList.forEach {
                if(it.lat!=null && it.lon!=null) {
                val latLngPlace = LatLng(it.lat!!, it.lon!!)
-               val markerOptionsPlace = MarkerOptions().position(latLngPlace).title(it.address).icon(
+               val markerOptionsPlace = MarkerOptions()
+                   .snippet("" + i)
+                   .position(latLngPlace)
+                   .title("more info >>>")
+                   .icon(
                    bitmapDescriptorFromVector(requireActivity(), R.drawable.ic_heart_svgrepo_com))
                 locationMap?.addMarker(markerOptionsPlace)}
+               i++
            }
+
                 locationMap?.setOnInfoWindowClickListener {
-                  PopUpWindowDialog.newInstance("katja","katja").show(parentFragmentManager, PopUpWindowDialog.TAG)
+                    val place = locationList.get(Integer.parseInt(it.snippet))
+                    place.picture?.let { it1 -> PopUpWindowDialog.newInstance(place.address!!, "2 km", it1, place.name!!).show(parentFragmentManager, PopUpWindowDialog.TAG) }
                 }
             }
 

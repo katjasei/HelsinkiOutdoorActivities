@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.helsinkioutdooractivities.R
 import com.example.helsinkioutdooractivities.data.model.GymListItem
 import com.example.helsinkioutdooractivities.ui.place.PlaceActivity
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.item_exercise.view.*
 import kotlinx.android.synthetic.main.item_gym.view.*
 
 
@@ -59,7 +61,8 @@ class GymsAdapter(private val activity: Activity, val context: Context, private 
         }
 
         holder.itemView.gym_title.text = gymItem.address
-        holder.itemView.gym_image.setImageResource(gymItem.gymImage)
+        Picasso.get().load(gymItem.gymImage).into(holder.itemView.gym_image)
+       // holder.itemView.gym_image.setImageResource(gymItem.gymImage)
         holder.itemView.distance.text = gymItem.distance
     }
 
