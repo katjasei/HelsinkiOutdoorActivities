@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.Button
 import com.example.helsinkioutdooractivities.R
 import com.example.helsinkioutdooractivities.ui.auth.AuthActivity
+import com.example.helsinkioutdooractivities.ui.place.GymInformationFragment
 import com.example.helsinkioutdooractivities.ui.place.PlaceActivity
 import com.example.helsinkioutdooractivities.ui.search.SearchActivity
 import com.example.helsinkioutdooractivities.utils.hideSystemUI
@@ -20,12 +21,14 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentListener,
 TabFavourites.TabFavouritesListener, TabWorkoutPlanFragment.TabWorkoutPlanFragmentListener,
-AddExerciseFragment.AddExerciseFragmentListener{
+AddExerciseFragment.AddExerciseFragmentListener, PopUpWindowDialog.DialogFragmentListener{
 
     //VARIABLES:
     private val homeFragment = HomeFragment()
     //firebase auth object
     private var mFirebaseAuth = FirebaseAuth.getInstance()
+    private val gymInformationFragment = GymInformationFragment()
+    val bundle = Bundle()
 
 
     //FUNCTIONS:
@@ -102,7 +105,7 @@ AddExerciseFragment.AddExerciseFragmentListener{
         //move to PlaceActivity
         val intent = Intent(this, PlaceActivity::class.java)
         intent.putExtra("Address",  "Ulappansaarentie 3")
-        intent.putExtra("GymImage", R.drawable.places1)
+        intent.putExtra("GymImage", "https://outdoor-gym.com/wp-content/uploads/outdoor-gym-and-outdoor-fitness-parks.jpg")
         intent.putExtra("Distance", "2,3 km")
         startActivity(intent)
     }
@@ -121,6 +124,21 @@ AddExerciseFragment.AddExerciseFragmentListener{
 
     override fun onButtonArrowBackClicked() {
         replaceFragment(TabWorkoutPlanFragment(), supportFragmentManager)
+    }
+
+    override fun onButtonMoreInfoClicked(
+        address: String,
+        distance: String,
+        pictureUrl: String,
+        name: String
+    ) {
+        bundle.putString("Address", address)
+        bundle.putString("GymImage", pictureUrl)
+        bundle.putString("Distance", distance)
+
+        gymInformationFragment.arguments = bundle
+
+        replaceFragment(gymInformationFragment, supportFragmentManager)
     }
 
 }

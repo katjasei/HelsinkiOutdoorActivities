@@ -20,6 +20,7 @@ import com.example.helsinkioutdooractivities.ui.home.TabPlacesFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_gym_informatin.*
 
 class GymInformationFragment: Fragment() {
@@ -35,6 +36,7 @@ class GymInformationFragment: Fragment() {
         val adapter = ViewPagerAdapterGymInformation(childFragmentManager, lifecycle)
 
         viewPager2.adapter = adapter
+        viewPager2.isSaveEnabled = false;
 
         TabLayoutMediator(tabLayout, viewPager2) { tab,position ->
             when (position) {
@@ -58,7 +60,8 @@ class GymInformationFragment: Fragment() {
         super.onActivityCreated(savedInstanceState)
         val arguments = arguments
         if(arguments != null) {
-            imageView2.setImageResource(arguments.getInt("GymImage"))
+            Picasso.get().load(arguments.getString("GymImage")).into(imageView2)
+            //imageView2.setImageResource(arguments.getInt("GymImage"))
             textView.text = arguments.getString("Address")
             distance_gym_fragment.text = arguments.getString("Distance")
         }
