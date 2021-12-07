@@ -4,4 +4,4 @@ There are multiple outdoor gyms available around the city where you can exercise
 # Most important features
 Gym locating map, Weather forecast, Equipment desc, Equipment instructions, Workout planner, Comment and rating
 # Screenshots
-[screenshot]
+![Screenshot](https://github.com/katjasei/HelsinkiOutdoorActivities/blob/main/app/src/main/res/drawable/all_screens.png)
