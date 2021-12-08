@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -21,120 +27,125 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/exercise_picture"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="278dp"
         android:layout_marginTop="64dp"
-        android:orientation="vertical"
+        android:contentDescription="TODO"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_photo_24"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/value_exercise_name"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:alpha="0.9"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:gravity="start|center"
+        android:hint="@string/exercise_name"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:paddingStart="12dp"
+        android:textColorHint="@color/textBlack"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.269"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/exercise_picture"
+        tools:ignore="ContentDescription,TextFields" />
 
-        <ImageView
-            android:id="@+id/exercise_picture"
-            android:layout_width="match_parent"
-            android:layout_height="278dp"
-            android:contentDescription="TODO"
-            android:scaleType="fitCenter"
-            android:src ="@drawable/ic_baseline_photo_24"/>
+    <TextView
+        android:id="@+id/area_of_focus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:paddingTop="20dp"
+        android:text="Area of focus"
+        android:textSize="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/value_exercise_name"
+        tools:layout_editor_absoluteX="0dp" />
 
-        <EditText
-            android:id="@+id/value_exercise_name"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:alpha="0.9"
-            android:background="@drawable/rounded_edittext"
-            android:ems="10"
-            android:gravity="start|center"
-            android:hint="@string/exercise_name"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
-            android:textColorHint="@color/textBlack"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription,TextFields" />
+    <EditText
+        android:id="@+id/value_area_of_focus"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:alpha="0.9"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:gravity="start|center"
+        android:hint="@string/area_of_focus"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:paddingStart="12dp"
+        android:textColorHint="@color/textBlack"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/area_of_focus"
+        tools:ignore="ContentDescription,TextFields" />
 
-        <TextView
-            android:id="@+id/area_of_focus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            android:paddingTop="20dp"
-            android:text="Area of focus"
-            android:textSize="24dp" />
+    <TextView
+        android:id="@+id/instruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:paddingTop="20dp"
+        android:text="Instruction"
+        android:textSize="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/value_area_of_focus"
+        tools:layout_editor_absoluteX="0dp" />
 
-        <EditText
-            android:id="@+id/value_area_of_focus"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:alpha="0.9"
-            android:background="@drawable/rounded_edittext"
-            android:ems="10"
-            android:gravity="start|center"
-            android:hint="@string/area_of_focus"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
-            android:textColorHint="@color/textBlack"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription,TextFields" />
+    <EditText
+        android:id="@+id/value_instruction"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:alpha="0.9"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:gravity="start|center"
+        android:hint="@string/instruction"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:paddingStart="12dp"
+        android:textColorHint="@color/textBlack"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instruction"
+        tools:ignore="ContentDescription,TextFields" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_exercise"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="340dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/txt_log_in"
+        android:text="@string/add_exercise"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/value_instruction" />
 
-        <TextView
-            android:id="@+id/instruction"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            android:paddingTop="20dp"
-            android:text="Instruction"
-            android:textSize="24dp" />
-
-        <EditText
-            android:id="@+id/value_instruction"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:alpha="0.9"
-            android:background="@drawable/rounded_edittext"
-            android:ems="10"
-            android:gravity="start|center"
-            android:hint="@string/instruction"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
-            android:textColorHint="@color/textBlack"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription,TextFields" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_add_exercise"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="340dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="64dp"
-            android:contentDescription="@string/txt_log_in"
-            android:text="@string/add_exercise"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            app:backgroundTint="@color/colorPrimary"
-            app:cornerRadius="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

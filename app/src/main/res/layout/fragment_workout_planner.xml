@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|end"
             android:layout_weight="2"
+            android:paddingStart="8dp"
             android:text="@string/workout_plan"
             android:textSize="24sp"
             android:textStyle="bold">
@@ -35,11 +36,12 @@
             android:layout_gravity="center_vertical|end"
             android:layout_weight="1"
             android:background="@drawable/rounded_edittext"
+            android:paddingEnd="8dp"
             android:text="@string/create"
             android:textColor="#000000"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:backgroundTint="@null"/>
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 
@@ -62,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|end"
             android:layout_weight="3"
+            android:paddingStart="8dp"
             android:text="@string/exercises_header"
             android:textSize="24sp"
             android:textStyle="bold">
@@ -75,11 +78,12 @@
             android:layout_gravity="center_vertical|end"
             android:layout_weight="1"
             android:background="@drawable/rounded_edittext"
+            android:paddingEnd="8dp"
             android:text="@string/create"
             android:textColor="#000000"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:backgroundTint="@null"/>
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 
