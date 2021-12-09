@@ -9,6 +9,7 @@
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable-v24/profile_icon.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable-v24/weather_icon.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/bus_front_12.xml" value="0.10675675675675676" />
+        <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/circle.xml" value="0.16936936936936936" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/heart_icon.xml" value="0.14864864864864866" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.19166666666666668" />
@@ -19,8 +20,11 @@
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.16576576576576577" />
+        <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_baseline_pause_24.xml" value="0.16936936936936936" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_baseline_skip_next_24.xml" value="0.16936936936936936" />
+        <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_baseline_skip_previous_24.xml" value="0.16936936936936936" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_heart_svgrepo_com.xml" value="0.175" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/ic_my_location_white_24dp.xml" value="0.19166666666666668" />
@@ -28,6 +32,7 @@
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/rounded_button.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/rounded_edittext.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/rounded_edittext_without_border.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/drawable/white_circle.xml" value="0.16936936936936936" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/activity_auth.xml" value="0.1" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/activity_exercise.xml" value="0.1431159420289855" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -38,6 +43,7 @@
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/example.xml" value="0.1" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_add_exercise.xml" value="0.13903985507246377" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_comments.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_createplan.xml" value="0.1" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_equipment.xml" value="0.12409420289855072" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_equipment_info.xml" value="0.10914855072463768" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_equipments.xml" value="0.10914855072463768" />
@@ -58,6 +64,7 @@
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_settings.xml" value="0.13405797101449277" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_signup.xml" value="0.1" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_splash.xml" value="0.1" />
+        <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_timer.xml" value="0.1" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_weather.xml" value="0.10914855072463768" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_workout.xml" value="0.1" />
         <entry key="..\:/Users/ekate/Desktop/Android app development/HelsinkiOutdoorActivities/app/src/main/res/layout/fragment_workout_equipment.xml" value="0.11503623188405797" />

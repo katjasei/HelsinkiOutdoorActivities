@@ -262,7 +262,6 @@ class TabMapFragment: Fragment(), OnMapReadyCallback {
 
     }
 
-
     private fun callWebservice(){
 
         val call = DemoApi.service.getLocations("GymFitness")

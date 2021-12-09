@@ -21,7 +21,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity(), TabPlacesFragment.TabPlacesFragmentListener,
 TabFavourites.TabFavouritesListener, TabWorkoutPlanFragment.TabWorkoutPlanFragmentListener,
-AddExerciseFragment.AddExerciseFragmentListener, PopUpWindowDialog.DialogFragmentListener{
+AddExerciseFragment.AddExerciseFragmentListener, PopUpWindowDialog.DialogFragmentListener,
+CreateWorkoutPlanFragment.CreateWorkoutFragmentListener{
 
     //VARIABLES:
     private val homeFragment = HomeFragment()
@@ -47,9 +48,11 @@ AddExerciseFragment.AddExerciseFragmentListener, PopUpWindowDialog.DialogFragmen
             2 -> {
                 replaceFragment(TabPlacesFragment(), supportFragmentManager)
             }
-
             3-> {
                 replaceFragment(TabWorkoutPlanFragment(), supportFragmentManager)
+            }
+            4 -> {
+                replaceFragment(CreateWorkoutPlanFragment(), supportFragmentManager)
             }
         }
 
@@ -122,6 +125,10 @@ AddExerciseFragment.AddExerciseFragmentListener, PopUpWindowDialog.DialogFragmen
         replaceFragment(AddExerciseFragment(), supportFragmentManager)
     }
 
+    override fun onButtonCreateWorkoutPlanClick() {
+        replaceFragment(CreateWorkoutPlanFragment(),supportFragmentManager)
+    }
+
     override fun onButtonArrowBackClicked() {
         replaceFragment(TabWorkoutPlanFragment(), supportFragmentManager)
     }
@@ -139,6 +146,10 @@ AddExerciseFragment.AddExerciseFragmentListener, PopUpWindowDialog.DialogFragmen
         gymInformationFragment.arguments = bundle
 
         replaceFragment(gymInformationFragment, supportFragmentManager)
+    }
+
+    override fun onButtonStartClick() {
+        replaceFragment(TimerFragment(), supportFragmentManager)
     }
 
 }
