@@ -22,6 +22,7 @@ class TabWorkoutPlanFragment: Fragment() {
     //FUNCTIONS AND INTERFACES
     interface TabWorkoutPlanFragmentListener {
         fun onButtonCreateExerciseClick()
+        fun onButtonCreateWorkoutPlanClick()
     }
     override fun onAttach(context: Context)   {
         super.onAttach(context)
@@ -37,9 +38,14 @@ class TabWorkoutPlanFragment: Fragment() {
         val exercisesView = view.findViewById<RecyclerView>(R.id.workout_plan_view)
         val exercisesPicturesView =  view.findViewById<RecyclerView>(R.id.exercises_view)
         val createExerciseButton = view.findViewById<Button>(R.id.button_create2)
+        val createWorkoutPlanButton = view.findViewById<Button>(R.id.button_create_workout_plan)
 
         createExerciseButton.setOnClickListener {
             activityCallBack!!.onButtonCreateExerciseClick()
+        }
+
+        createWorkoutPlanButton.setOnClickListener {
+            activityCallBack!!.onButtonCreateWorkoutPlanClick()
         }
 
         exercisesList.add(ClassNumberOfExercises(10))

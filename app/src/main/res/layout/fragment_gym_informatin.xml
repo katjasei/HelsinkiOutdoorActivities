@@ -13,6 +13,7 @@
         android:layout_height="270dp"
         android:background="@color/white"
         android:contentDescription="ghg"
+        android:foreground="@drawable/gradient"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,15 +69,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout_gym"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="275dp"
-            android:background="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </com.google.android.material.tabs.TabLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_gym"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="275dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
@@ -84,7 +85,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/tab_layout_gym"
         android:layout_centerInParent="true"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="330dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
